@@ -1,2 +1,1 @@
-export const API ="https://final-ecom-project-1.onrender.com";
-
+export const API ="https://mern-aws-ecom-2-hy31.onrender.com";

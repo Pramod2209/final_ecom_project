@@ -9,6 +9,7 @@ import Login from "./components/Login";
 import Signup from "./components/Signup";
 import ProtectedRoute from "./pages/ProtectedRoute";
 import AddProducts from "./components/AddProducts";
+import About from "./components/About";
 
 function App() {
   const [cart, setCart] = useState([]);
@@ -89,6 +90,16 @@ function App() {
                 }`}
               >
                 Products
+              </Link>
+              <Link 
+                to="/about" 
+                className={`px-4 py-2 rounded-md font-medium transition-colors ${
+                  location.pathname === "/about" 
+                    ? "bg-orange-50 text-orange-600" 
+                    : "text-gray-700 hover:bg-gray-50"
+                }`}
+              >
+                About
               </Link>
               <Link 
                 to="/addproduct" 
@@ -201,6 +212,17 @@ function App() {
                   Products
                 </Link>
                 <Link 
+                  to="/about" 
+                  className={`font-medium py-3 px-4 rounded-md ${
+                    location.pathname === "/about" 
+                      ? "text-orange-600 bg-orange-50" 
+                      : "text-gray-700 hover:bg-gray-50"
+                  }`}
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  About
+                </Link>
+                <Link 
                   to="/addproduct" 
                   className={`font-medium py-3 px-4 rounded-md ${
                     location.pathname === "/addproduct" 
@@ -274,6 +296,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/products" element={<Products cart={cart} setCart={setCart} />} />
           <Route path="/product/:id" element={<Product cart={cart} setCart={setCart} />} />
+          <Route path="/about" element={<About />} />
           <Route path="/cart" element={
             <ProtectedRoute>
               <Cart cart={cart} setCart={setCart} />
@@ -345,6 +368,7 @@ function App() {
             <div>
               <h3 className="font-bold text-lg mb-6">Customer Service</h3>
               <ul className="space-y-4">
+                <li><Link to="/about" className="text-gray-400 hover:text-white transition-colors">About Us</Link></li>
                 <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Contact Us</a></li>
                 <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Shipping Policy</a></li>
                 <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Returns & Exchanges</a></li>
